@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Warehouse</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/Tech Market (2).png" type="image/png">
+</head>
+<body>
+  <div class="header-wrapper">
+    <!-- Top Bar -->
+    <div class="top-bar py-1 top-header">
+      <div class="container d-flex justify-content-between align-items-center">
+        <span class="shipping-msg">Free shipping on orders over $80</span>
+        <button class="btn btn-sm subscribe-btn">
+          <i class="bi bi-envelope"></i> Subscribe & Save
+        </button>
+      </div>
+    </div>
+  
+    <!-- Main Header -->
+    <div class="main-header py-3">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center">
+  
+        <!-- Logo -->
+        <div class="logo">
+          <a href="index.html">
+            <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/logo_4031f3e7-60f6-44da-98f7-3e8b9320ef7f_175x@2x.png?v=1613541925" alt="logo">
+          </a>
+        </div>
+  
+        <!-- Search Bar -->
+        <div class="input-group w-50">
+          <input type="text" class="form-control" placeholder="Search...">
+          <select class="form-select category-select">
+            <option>All categories</option>
+          </select>
+          <button class="btn search-btn">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+  
+        <!-- Country / Account / Cart -->
+        <div class="d-flex align-items-center gap-3 text-white">
+          <!-- Country Dropdown -->
+          <div class="dropdown text-end small">
+            <span>Country/region</span><br>
+            <button id="country-btn" class="btn btn-sm text-white dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <strong>Georgia (GEL ლ)</strong>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')">Georgia (GEL ლ)</a></li>
+              <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')">Germany (EUR €)</a></li>
+              <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')">USA (USD $)</a></li>
+              <li><a class="dropdown-item" href="#" onclick="updateCountry('France', 'EUR €')">France (EUR €)</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="vr text-white"></div>
+        <div class="text-end small">
+         <span id="loginBtn" class="link"><span class="login1"> Login</span>/<span class="signup1">Signup</span></span><br />
+          <a href="account.html" class="link fw-bold my-account">My account</a>
+        </div>
+        <div id="loginModal" class="modal2">
+      <div class="modal2-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Login / Signup</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Enter username" required />
+        <button type="submit">Login</button>
+      </form>
+       </div>
+       </div>
+        <div class="vr text-white"></div>
+        <div class="d-flex align-items-center gap-1">
+        <i class="bi bi-cart" style="font-size: 1.4rem;"></i>
+         <span id="cart-count" class="badge bg-info text-dark">0</span>
+        <span>Cart</span>
+      </div>
+
+      </div>
+    </div>
+  
+    <!-- Navigation Links -->
+    <div class="nav-links mt-0">
+      <div class="container d-flex flex-wrap gap-3">
+        <div class="dropdown">
+          <button class="btn dropdown-toggle nav-btn" data-bs-toggle="dropdown">All Products</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Product 1</a></li>
+            <li><a class="dropdown-item" href="#">Product 2</a></li>
+          </ul>
+        </div>
+        <a href="#" class="nav-link">New Arrivals</a>
+        <a href="#" class="nav-link">Sales</a>
+        <a href="#" class="nav-link"><span class="blog-2">All Collections</span></a>
+        <a href="#" class="nav-link"><span class="blog-2">Brands</span></a>
+        <div class="dropdown2">
+          <button class="btn dropdown-toggle nav-btn" data-bs-toggle="dropdown"><span class="blog-2">Information</span></button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Shipping Info</a></li>
+            <li><a class="dropdown-item" href="#">Returns</a></li>
+          </ul>
+        </div>
+        <a href="#" class="nav-link"><span class="blog-1">Blog<span></a>
+        <a href="#" class="nav-link"><span class="blog-1">Contact</span></a>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- Hero Slider -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero-slide d-flex align-items-center justify-content-center text-center text-white" style="background-image: url('images/hero-image.png');">
+          <div class="first-carousel-content">
+            <h2 class="fw-bold display-5">The best performing products in the world</h2>
+            <p class="lead">Our mission is to provide the best experience in the audio/video industry</p>
+            <a href="#" class="btn btn-light btn-lg mt-3">Shop All</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero-slide d-flex align-items-center justify-content-center text-center text-white" style="background-image: url('images/hero-image2.png');">
+          <div class="second-carousel-content">
+            <h2 class="fw-bold display-5">Introducing: the Headphones Collection</h2>
+            <p class="lead">Discover our selection of the best headphones of the year</p>
+            <a href="#" class="btn btn-light btn-lg mt-3">Shop All Headphones</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="hero-slide d-flex align-items-center justify-content-center text-center text-white" style="background-image: url('images/hero-image3.png');">
+          <div class="third-carousel-content">
+            <h2 class="fw-bold display-5">New JBL Portable Speakers</h2>
+            <p class="lead">Discover the brand new speakers, by JBL</p>
+            <a href="#" class="btn btn-light btn-lg mt-3">Shop JBL Clip 3</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Slide 4 -->
+      <div class="carousel-item">
+        <div class="hero-slide d-flex align-items-center justify-content-center text-center text-white" style="background-image: url('images/hero-image-4.png');">
+          <div class="fourth-carousel-content">
+            <h2 class="fw-bold display-5">Introducing brand new OLED TVs</h2>
+            <p class="lead">Discover all the masterpieces, selected by Warehouse</p>
+            <a href="#" class="btn btn-light btn-lg mt-3">Shop OLED TVs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators mb-4">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="width: 12px; height: 12px; border-radius: 50%; background-color: white;"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2" style="width: 12px; height: 12px; border-radius: 50%; background-color: white;"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3" style="width: 12px; height: 12px; border-radius: 50%; background-color: white;"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4" style="width: 12px; height: 12px; border-radius: 50%; background-color: white;"></button>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+ <div class="containers-section">
+    <div class="container py-5">
+        <div class="row g-4">
+          <!-- OLED TVs -->
+          <div class="col-md-4">
+            <div class="custom-card" style="background-color: #ff2e7e;">
+              <h4>OLED TVs</h4>
+              <p>Exclusive offers on TVs until Dec 31. $100 off on every purchase</p>
+              <button class="btn btn-light text-danger fw-bold">Shop OLED TVs</button>
+              <span style="display:inline-block; width: 170px;">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/promotion-tvs_x2000_dbeffac0-9a5c-4dd7-be82-4f390aec55f4.png?v=1613539565&width=800" alt="OLED TVs" style="width:50%;">
+              </span>
+            </div>
+          </div>
+      
+          <!-- Speakers -->
+          <div class="col-md-4">
+            <div class="custom-card" style="background-color: #8e44ec;">
+              <h4>Speakers</h4>
+              <p>Explore our range of high-quality speakers.</p>
+              <button class="btn btn-light text-primary fw-bold">Shop Speakers</button>
+              <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/speakers-promotions_x2000_3cfa90d9-1e0d-4001-9c8f-e5ca69584bdc.png?v=1613539565&width=800" alt="Speakers">
+            </div>
+          </div>
+      
+          <!-- Headphones -->
+          <div class="col-md-4">
+            <div class="custom-card" style="background-color: #1abc9c;">
+              <h4>Headphones</h4>
+              <p>Discover our new headphones. Up to 25% Off!</p>
+              <button class="btn btn-light text-info fw-bold">Shop Headphones</button>
+              <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/promotion-headphones_x2000_f4667f82-fb70-4ba6-abba-f696a2f91d9f.png?v=1613539564&width=800" alt="Headphones">
+            </div>
+          </div>
+        </div>
+      
+        <div class="row g-4 mt-4">
+          <!-- JBL Offers -->
+          <div class="col-md-6">
+            <div class="card-light d-flex align-items-center gap-3">
+              <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/offer-1_2x_6ba50f80-1d2d-4361-a867-05ca0f32413c.jpg?v=1613538676&width=500" alt="JBL">
+              <div>
+                <h6 class="text-primary">Exclusive offers on JBL products</h6>
+                <p class="mb-0">We offer you a lot of discounts on all our JBL speakers, including JBL Clip 3, JBL Flip 4 or JBL Link 20!</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Free Shipping -->
+          <div class="col-md-6">
+            <div class="card-light d-flex align-items-center gap-3">
+              <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/offer-2_2x_26b533cd-d17a-43fe-97c8-8d0af50a398c.jpg?v=1613538676&width=500 alt="Box">
+              <div>
+                <h6 class="text-primary">Free shipping for all orders over $80</h6>
+                <p class="mb-0">We got you covered! We deliver your goods using UPS expedited shipping, free of charge.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+ <div class="collection-section">
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-bold">Our Collections</h3>
+          <a href="#" id="toggleCollection" class="text-decoration-none fw-semibold text-primary">View all</a>
+        </div>
+      
+        <div id="collectionCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex justify-content-center gap-5 flex-wrap">
+                <!-- Collection Item -->
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/headphones-600.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="Headphones">
+                  <div class="collection-caption">Headphones</div>
+                </div>
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/earbuds-600_abcad8d1-f772-47be-8de5-7b6e1dd45f03.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="Earbuds">
+                  <div class="collection-caption">Earbuds</div>
+                </div>
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/speakers-600_490fc860-32d7-4226-bb15-b319dfcad104.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="Speakers">
+                  <div class="collection-caption">Speakers</div>
+                </div>
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/oled-tvs-600_1f8be815-fc56-40ee-81d4-a813eba17df2.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="OLED TVs">
+                  <div class="collection-caption">OLED TVs</div>
+                </div>
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/turntables-600_7f5b0d89-9873-45ce-a0da-5bc6907ed9d8.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="Turntables">
+                  <div class="collection-caption">Turntables</div>
+                </div>
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/subwoofers-600_2406ccc6-33ce-4565-aa2f-aa0079f816e5.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="Subwoofers">
+                  <div class="collection-caption">Subwoofers</div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Second set of items -->
+            <div class="carousel-item">
+              <div class="d-flex justify-content-center gap-4 flex-wrap">
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/tv-accessories-600_89ff24e3-abd2-411e-9012-9688654ccc4e.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="TV Accessories">
+                  <div class="collection-caption">TV Accessories</div>
+                </div>
+                <div class="collection-item text-center">
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/amplifiers-600_969cae5b-7025-4eca-9629-166de542116c.jpg?v=1613538675&width=480" class="rounded-circle collection-img" alt="Amplifiers">
+                  <div class="collection-caption">Amplifiers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Arrows -->
+          <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#collectionCarousel" data-bs-slide="prev">
+            <span class="arrow-circle">
+              <span class="carousel-control-prev-icon"></span>
+            </span>
+          </button>
+          <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#collectionCarousel" data-bs-slide="next">
+            <span class="arrow-circle">
+              <span class="carousel-control-next-icon"></span>
+            </span>
+          </button>
+      </div>
+    </div>
+ </div>
+      
+
+
+ <div class="our-collections-section">
+      <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold">Our Collections</h3>
+          </div>
+        <div class="position-relative overflow-hidden" id="featuredSlider">
+          <div class="d-flex transition-slider featured-carousel" style="width: 200%;">
+            <button class="prev"><i class="fas fa-chevron-left"></i></button> <!-- Left arrow -->
+            <!-- Each product card -->
+            <div class="d-flex flex-wrap featured-slide w-100">
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div id="save1" class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small" data-usd="800.00">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg?v=1559061527&width=800" class="card-img-top" alt="Product Image">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1 hover-blue">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13549_790__2_73a2a189-b3d5-4ec8-a4c3-b506e1beab70.jpg?v=1559820925&width=400">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/11910_163__1_d6abac00-2eb0-4f32-ab5b-40a3b1be2c70.jpg?v=1559124626&width=800">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/12678_869__1_1500x_b9a505f9-8986-45bf-a73b-5950c9008349.jpg?v=1559654098&width=800">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/810r40dvucl._sl1500_301f6862-d310-4a4f-b4c0-8e06cb9be769.jpg?v=1559059967&width=800">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16892_375__1_20de2da5-237a-4403-b3c5-7b3584ef76ab.jpg?v=1559060536&width=1200">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="d-flex flex-wrap featured-slide w-100">
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/81sbro_2babil._sl1500_fdfcd084-5e31-44fe-b259-c4f6024858ad.jpg?v=1559059989&width=600">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16433_260__1_31173a53-f655-43f9-bfbd-bf02365e0401.jpg?v=1559819407&width=600">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13261_147__1_2e3211f9-de49-4919-9e67-006800a5c5a0.jpg?v=1559727794&width=600">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13890_220__1.jpg?v=1559061387&width=600">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16449_929__1_fc80a6d4-9b4b-4a2e-bfc3-30118e2e2858.jpg?v=1559819534&width=600">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 p-0">
+                <div class="card h-100 shadow-sm rounded-0">
+                  <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small">Save $800.00</div>
+                  <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13200_009__1_3e4b3ec4-83b2-4648-8fb2-198b27ff4b97.jpg?v=1559058737&width=600">
+                  <div class="card-body p-2">
+                    <small class="text-muted">SONY</small>
+                    <h6 class="card-title mb-1">Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                    <p class="text-danger fw-bold mb-1">From $1,398.00</p>
+                    <p class="text-decoration-line-through text-muted small">$2,198.00</p>
+                    <div class="text-warning mb-1">★★★★☆</div>
+                    <p class="text-success small mb-0">In stock, 77 units</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="next"><i class="fas fa-chevron-right"></i></button> 
+        </div>
+      </div>
+ </div>
+
+ <div class="shop-now-section">
+ <div class="container my-5">
+  <div class="row g-4">
+    <!-- LEFT COLUMN -->
+    <div class="col-lg-3 d-flex flex-column gap-4">
+      <div class="product-box position-relative overflow-hidden" style="--bg: url('https://warehouse-theme-metal.myshopify.com/cdn/shop/files/bluetooth-red_f7adb5c3-0506-4481-b8ee-aa20422d1d2f.png?v=1613538729&width=600');">
+        <span class="position-absolute top-0 start-0 w-100 h-100 bg-danger z-0"></span>
+        <!-- Product content -->
+        <div class="product-content lift-content position-relative z-2 text-white">
+          <h5>Bluetooth</h5>
+          <p>Feel the freedom with our Bluetooth headphones and speakers.</p>
+          <button class="btn btn-light shop-btn">Shop Now</button>
+        </div>
+      </div>
+      
+      <div class="product-box" style="background-image: url('https://warehouse-theme-metal.myshopify.com/cdn/shop/files/mosaic-audio_04cd57f4-2a11-47e3-bd88-0231bc0618f0.jpg?v=1613538785&width=600');">
+        <div class="product-content lift-content ">
+          <h5>Professional Audio</h5>
+          <p>Get the best deals for professional audio equipment.</p>
+          <button class="btn btn-light shop-btn">Shop Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER COLUMN -->
+    <div class="col-lg-6">
+      <div class="product-box big-box" style="background-image: url('https://warehouse-theme-metal.myshopify.com/cdn/shop/files/mosaic-headphones.jpg?v=1613538796&width=600');">
+        <div class="product-content move-up text-black">
+          <h5>Headphones</h5>
+          <p>Our selection of premium headphones to enjoy your favorite playlist with an incredible sound.</p>
+          <button class="btn btn-light shop-btn">Shop Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-lg-3 d-flex flex-column gap-4">
+      <div class="product-box" style="background-image: url('https://warehouse-theme-metal.myshopify.com/cdn/shop/files/accessories-bag.jpg?v=1613538796&width=600');">
+        <div class="product-content lift-content">
+          <h5>Accessories</h5>
+          <p>Our various accessories to have the best experience.</p>
+          <button class="btn btn-light shop-btn">Shop Now</button>
+        </div>
+      </div>
+      <div class="product-box" style="background-image: url('images/projector.png');">
+        <div class="product-content lift-content">
+          <h5>Projectors</h5>
+          <p>Play or watch your favorite TV shows with these projectors.</p>
+          <button class="btn btn-light shop-btn">Shop Now</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+ </div>
+ </div>
+
+ <div class="about-warehouse-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h3 class="text-dark-blue">About Warehouse</h3>
+        <p class="about-text  my-4">
+          Our mission statement is to provide the absolute best customer experience available in the Audio/Video <br>
+           industry without exception. 
+          We choose to only sell the best performing products in the world, learning <br>
+           them inside and out to ensure your experience with our 
+          organization and the products we supply are <br> second to none. 
+          HiDEF Lifestyle is one of the fastest growing Audio and Video retailers 
+          in the United <br> States.
+        </p>
+        <button class="btn btn-info text-white custom-btn">Discover our brand</button>
+      </div>
+    </div>
+  </div>
+ </div>
+
+ <div class="brands-section">
+  <div class="container-fluid mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="fw-bold">Brands we distribute</h5>
+      <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#brandsModal">View all brands</a>
+    </div>
+  
+    <div class="d-flex flex-row flex-nowrap gap-0">
+      <div class="brand-box1"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/jbl_2x_a92dda2f-02d1-4048-aad8-e54b3b0020d7.jpg?v=1613538678&width=280" alt="Brand 1" class="img-fluid"></div>
+      <div class="brand-box1"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/lg_2x_4e7aac88-df70-46d3-afb8-62440355c980.jpg?v=1613538678&width=280" alt="Brand 2" class="img-fluid"></div>
+      <div class="brand-box1"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/sony_2x_1eaa5916-dc1f-4d37-9ffd-1680554d5115.jpg?v=1613538632&width=280" alt="Brand 3" class="img-fluid"></div>
+      <div class="brand-box1"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/pioneer_2x_769ad94d-7220-408d-b709-746a89ffac91.jpg?v=1613538679&width=280" alt="Brand 4" class="img-fluid"></div>
+      <div class="brand-box1"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/harman_kardon_2x_d74427ae-81df-4a01-9343-c7bcd116d7da.jpg?v=1613538678&width=280" alt="Brand 5" class="img-fluid"></div>
+      <div class="brand-box1"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/klipsch_2x_5fbe2c74-cf98-493e-bf75-6987a11db936.jpg?v=1613538678&width=280" alt="Brand 6" class="img-fluid"></div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="brandsModal" tabindex="-1" aria-labelledby="brandsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div class="modal-content" style="margin-top: 320px; padding: 65px;">
+        <div class="modal-header">
+          <h5 class="modal-title">All Brands</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row g-0">
+              <!-- 18 Brand Boxes in 3 Rows -->
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/akg_2x_80004055-485b-4c85-8e39-bae8a43abf6a.jpg?v=1558448379&width=480" alt="Brand 1" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/audio_technica_2x_2dc2277d-6a5a-415e-9061-60689b64d869.jpg?v=1558448450&width=480" alt="Brand 2" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/cambridge_2x_b95d2ecc-43a6-4036-b9ae-14b494d117e7.jpg?v=1559550729&width=480" alt="Brand 3" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/devialet_2x_e7dff55e-b853-4a8e-ad5f-2b7e18c58dbd.jpg?v=1558451418&width=480" alt="Brand 4" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/focal_2x_16a2b00a-373a-4bfc-939b-95d675976709.jpg?v=1558451527&width=480" alt="Brand 5" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/harman_kardon_2x_278a2d29-3a10-4823-ad81-b553c70fa0ab.jpg?v=1558451714&width=480" alt="Brand 6" class="img-fluid"></div>
+  
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/jbl_2x_47839715-10a0-46b2-8d81-9760acbc0363.jpg?v=1559550642&width=480" alt="Brand 7" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/klipsch_2x_9efe78d5-0848-4e36-b94e-fa5350f6d351.jpg?v=1559550620&width=480" alt="Brand 8" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/lg_2x_215e2a2f-6cda-4ab1-b024-2b24350d5f9f.jpg?v=1559550603&width=480" alt="Brand 9" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/marantz_2x_9f4f0d31-e30d-4129-acaa-98ccca69601f.jpg?v=1559550677&width=480" alt="Brand 10" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/master_dynamic_2x_a436130c-9256-492c-a50e-a62c161225cc.jpg?v=1558452628&width=480" alt="Brand 11" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/pioneer_2x_c4df7357-1970-4954-b99a-2ca104bcf600.jpg?v=1559550660&width=480" alt="Brand 12" class="img-fluid"></div>
+  
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/samsung_2x_4f3ae204-f600-4a99-85aa-080b27d1f2bf.jpg?v=1559550586&width=480" alt="Brand 13" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/sennheiser_2x_efaf7675-72df-4c5b-981f-96be81c72c3e.jpg?v=1559550694&width=480" alt="Brand 14" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/shure_2x_05241ac9-de58-4e1f-bb83-69399a1f3dd0.jpg?v=1558453165&width=480" alt="Brand 15" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/sony_2x_c26cb1e5-779e-43d6-b3ae-b9e657545c7f.jpg?v=1558453355&width=480" alt="Brand 16" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/yamaha_2x_0a114887-78a5-41d6-82c7-135309ff3c17.jpg?v=1559550429&width=480" alt="Brand 17" class="img-fluid"></div>
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2 brand-box2"><img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/collections/denon_2x_fb4b3c8d-0da5-4fc3-a264-e27e138b3923.jpg?v=1559550715&width=480" alt="Brand 18" class="img-fluid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+       <div class="new-tv-section">
+     <div class="container-fluid py-4">
+       <div class="border-rounded-wrapper d-flex">
+  <div class="row">
+    <!-- Left: Info section -->
+    <div class="left-section p-4 d-flex flex-column justify-content-between">
+      <div class="new-tv-content">
+        <h3 class="new-tv-caption">New TVs</h3>
+        <p class="new-tv-text">Here is our selection of new TVs on the market, picked by our Warehouse experts.</p>
+        <button class="btn">Shop All TVs</button>
+      </div>
+      <img src="images/tv-image2.png" alt="TV promotion" class="img-fluid  mt-4">
+    </div>
+
+    <!-- Right: Carousel with 4 cards per slide -->
+    <div class="carousel-section p-4">
+      <div id="tvCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-3 position-relative tv-card">
+                <span class="badge-sale">Save $800.00</span>
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg?v=1559061527&width=800" alt="TV 1">
+                <p class="text-muted small mt-2 mb-0">SONY</p>
+                <h6>Sony XBR-950G BRAVIA 4K HDR Ultra HD TV</h6>
+                <p class="text-danger mb-0">From $1,398.00</p>
+                <small class="text-muted text-decoration-line-through">$2,198.00</small>
+                <p>⭐⭐⭐⭐ 3 reviews</p>
+                <p class="text-success tv-stock">● In stock, 77 units</p>
+              </div>
+              <div class="col-md-3 position-relative tv-card">
+                <span class="badge-new">New</span>
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16194_250__1_cee96397-0276-4480-9361-6640fdb80b54.jpg?v=1559061572&width=800" alt="TV 2">
+                <p class="text-muted small mt-2 mb-0">SONY</p>
+                <h6>Sony XBR-65A1E 65-Inch 4K OLED TV</h6>
+                <p class="text-primary">$3,198.00</p>
+                <p>⭐⭐⭐⭐⭐ 2 reviews</p>
+                <p class="text-danger tv-stock">● Only 1 unit left</p>
+              </div>
+              <div class="col-md-3 tv-card">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16187_668__1_689b6c81-9210-43af-b9a7-722d4054370f.jpg?v=1559061266&width=800" alt="TV 3">
+                <p class="text-muted small mt-2 mb-0">SONY</p>
+                <h6>Sony KD55X720E 55-Inch 4K Smart LED TV</h6>
+                <p class="text-primary">$698.00</p>
+                <p>⭐⭐⭐⭐⭐ 1 review</p>
+                <p class="text-secondary tv-stock">● Sold out</p>
+              </div>
+              <div class="col-md-3 tv-card">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/91bu9k4syfl._sl1500_6c92740b-a569-4700-96af-8044c2c6542d.jpg?v=1559061277&width=800" alt="TV 4">
+                <p class="text-muted small mt-2 mb-0">SONY</p>
+                <h6>Sony KD55X750F 55-Inch 4K Smart LED TV</h6>
+                <p class="text-primary">$748.00</p>
+                <p>⭐⭐⭐⭐⭐ 1 review</p>
+                <p class="text-success tv-stock">● In stock, 145 units</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-3 tv-card">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16166_125__1_3c0a96d8-25e7-49a6-aba5-b34307b651a9.jpg?v=1559061634&width=800" alt="TV 5">
+                <p class="text-muted small mt-2 mb-0">SAMSUNG</p>
+                <h6>Samsung Q80T QLED 4K UHD Smart TV</h6>
+                <p class="text-primary">$1,098.00</p>
+                <p>⭐⭐⭐⭐ 4 reviews</p>
+                <p class="text-success tv-stock">● In stock, 23 units</p>
+              </div>
+              <div class="col-md-3 tv-card">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16184_133__1_81334dd4-7155-4037-aa12-09f08a2f85b3.jpg?v=1559061605&width=800" alt="TV 6">
+                <p class="text-muted small mt-2 mb-0">LG</p>
+                <h6>LG OLED55CXPUA Alexa Built-In CX 55" 4K</h6>
+                <p class="text-primary">$1,496.00</p>
+                <p>⭐⭐⭐⭐⭐ 9 reviews</p>
+                <p class="text-danger tv-stock">● Only 2 left</p>
+              </div>
+              <div class="col-md-3 tv-card">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/91iihyeiy9l._sl1500_87e8c3c8-d55a-4ee1-8cc1-4859d4969820.jpg?v=1559061596&width=800" alt="TV 7">
+                <p class="text-muted small mt-2 mb-0">VIZIO</p>
+                <h6>Vizio 65-Inch 4K HDR Smart TV</h6>
+                <p class="text-primary">$598.00</p>
+                <p>⭐⭐⭐ 2 reviews</p>
+                <p class="text-secondary tv-stock">● Sold out</p>
+              </div>
+              <div class="col-md-3 tv-card">
+                <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16037_175__1_28b2d8bc-8276-4a81-a733-d262d815a048.jpg?v=1559061582&width=800" alt="TV 8">
+                <p class="text-muted small mt-2 mb-0">TCL</p>
+                <h6>TCL 6-Series 65” 4K QLED Roku Smart TV</h6>
+                <p class="text-primary">$798.00</p>
+                <p>⭐⭐⭐⭐⭐ 5 reviews</p>
+                <p class="text-success tv-stock">● In stock, 50 units</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#tvCarousel" data-bs-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#tvCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+ </div>
+     </div>
+       </div>
+
+  <div class="featured-product-section">
+     <h5 class="mb-4">Featured product</h5>
+  <div class="row">
+    <!-- Thumbnails -->
+    <div class="col-md-1">
+      <div class="d-flex flex-column gap-2 product-thumbs">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_417__1_dcd9694a-a473-46e8-9368-d0aaadbce069.jpg?v=1560250249&width=260" class="active" alt="thumb">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_950__3_a18a25dd-5fce-4ca3-95ca-377426c84175.jpg?v=1560250249&width=260" alt="thumb">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_177__4_8b5dec2f-32d6-441d-ac14-c259debeb4b6.jpg?v=1560250249&width=260" alt="thumb">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_212__2_b04238d0-08da-4319-8cdd-893df4bc15ef.jpg?v=1560250249&width=260" alt="thumb">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_401__5_a1d1b670-c599-40f4-a326-af6e17dc181c.jpg?v=1560250249&width=260" alt="thumb">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=260" alt="thumb">
+      </div>
+    </div>
+
+    <!-- Main Image with Zoom and Caption -->
+ <div class="col-md-5 text-center border-end pe-4 d-flex flex-column align-items-center justify-content-center">
+  <div class="zoom-container" style="width: 400px; height: 400px;">
+    <img id="main-image" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_417__1_dcd9694a-a473-46e8-9368-d0aaadbce069.jpg?v=1560250249&width=1200" class="zoom-image" alt="product">
+  </div>
+  <p class="text-muted mt-2">
+    <i class="bi bi-zoom-in"></i> Roll over image to zoom in
+  </p>
+ </div>
+    <!-- Details -->
+    <div class="col-md-6">
+      <h5 class="text-primary fw-bold">JBL Clip 3 Portable Waterproof Wireless Bluetooth Speaker</h5>
+      <p><a href="#" class="text-success fw-semibold">JBL</a> | SKU: JBL-580619-CLI-BL</p>
+      <div class="rating mb-2">
+        ★★★★☆ <span class="text-muted">(3 reviews)</span>
+      </div>
+
+      <div class="mb-2"><strong>Color:</strong> Black</div>
+      <div class="mb-3">
+        <span class="color-swatch bg-black active"
+         data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_417__1_dcd9694a-a473-46e8-9368-d0aaadbce069.jpg?v=1560250249&width=1200"
+         data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_417__1_dcd9694a-a473-46e8-9368-d0aaadbce069.jpg?v=1560250249&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_950__3_a18a25dd-5fce-4ca3-95ca-377426c84175.jpg?v=1560250249&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_177__4_8b5dec2f-32d6-441d-ac14-c259debeb4b6.jpg?v=1560250249&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_212__2_b04238d0-08da-4319-8cdd-893df4bc15ef.jpg?v=1560250249&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_401__5_a1d1b670-c599-40f4-a326-af6e17dc181c.jpg?v=1560250249&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=420"></span>
+        <span class="color-swatch" style="background-image: url('https://warehouse-theme-metal.myshopify.com/cdn/shop/files/camo_72x72.png?v=1613538219'); background-size: cover;"
+        data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/jbl3cam2.jpg?v=1560250249&width=1200"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/jbl3cam2.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/jbl3cam.jpg?v=1560250249&width=430,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/jbl3cam3.jpg?v=1560250249&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=420"></span>
+        <span class="color-swatch" style="background-color:#328B86" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16052_218__1_b4b0f2a5-a0ad-4f14-a441-8f3cb8348c68.jpg?v=1631721667&width=1200"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16052_218__1_b4b0f2a5-a0ad-4f14-a441-8f3cb8348c68.jpg?v=1631721667&width=1200,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16052_784__5_02d6b9b2-c03d-44a5-b2de-2bab07527330.jpg?v=1631721670&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16052_015__2_20cefa3f-a066-42df-8282-d24f37474edb.jpg?v=1631721673&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16052_939__4_a4c9b123-5292-4fde-8e13-ee8063fc4f39.jpg?v=1631721676&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16052_546__3_19d07f47-b306-4967-84e4-cb111b07c8f8.jpg?v=1631721679&width=420,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400" ></span>
+        <span class="color-swatch" style="background-color:#808080;" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16055_393__1_8870a769-a683-4b4a-9f70-df11cd3dcf99.jpg?v=1631721706&width=1200"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16055_393__1_8870a769-a683-4b4a-9f70-df11cd3dcf99.jpg?v=1631721706&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16055_153__3_bbca1317-9cfd-48f5-8bb8-869f8235a727.jpg?v=1631721799&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16055_222__4_06e30ec4-8fe9-4d38-ba0d-5c6c39a3cde4.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16055_307__2_df7b6012-d663-4b31-9437-a9b1c41d73e1.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16055_429__5_33951197-9c29-4687-8635-d206dd3c6982.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400" ></span>
+        <span class="color-swatch" style="background-color:#E5A8AF;" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16050_285__1_596ec850-e4a7-484f-80cc-222c3fda2f3a.jpg?v=1560250249&width=1200"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16050_285__1_596ec850-e4a7-484f-80cc-222c3fda2f3a.jpg?v=1560250249&width=1200,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16050_156__3_daf804a0-3f9f-45b6-b350-e3388785d5d4.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16050_485__4_89342a57-ddd8-4f3a-a7dc-4e01ed009b07.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16050_294__2_22ea84d4-8124-49e1-abce-118e9d790a28.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16050_066__5_4a9276e9-e9fc-4244-9fa2-0d2ba22085d2.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400" ></span>
+        <span class="color-swatch" style="background-color:#B93332;" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16053_046__1_4270a960-9017-4dd2-8ab1-6eb0bdff9297.jpg?v=1560250249&width=1200"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16053_046__1_4270a960-9017-4dd2-8ab1-6eb0bdff9297.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16053_431__3_95efd050-d985-482f-9311-ea56756b7df3.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16053_297__4_39294b72-b114-4f18-91a5-ddfd11fadbaf.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16053_793__2_bb4f252b-9a06-42ac-8033-9ec69ace4c95.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16053_041__5_934e7833-a6ad-4829-9464-858dd0d704c2.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400" ></span>
+        <span class="color-swatch" style="background-color:#938B66;" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16054_230__1_ff626e13-5ba1-4393-ac68-b78520304adc.jpg?v=1560250249&width=1200"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16054_230__1_ff626e13-5ba1-4393-ac68-b78520304adc.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16054_873__2_a26beac3-6034-4c0c-8cf9-cff2d3ce6c75.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16054_637__3_8958cd12-3b35-496d-9a00-735ef9583ae7.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16054_328__4_348a2136-ca41-4f8c-9cd3-e451bba267e0.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400"></span>
+        <span class="color-swatch" style="background-color:#37B9B5;" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16051_887__1_5f77f7e2-02ed-43a2-819b-134f80b7df1a.jpg?v=1560250249&width=1000"
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16051_887__1_5f77f7e2-02ed-43a2-819b-134f80b7df1a.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16051_026__3_b6144529-7484-48e8-b48b-837ddab1f495.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16051_873__4_1915eb44-7b2a-4256-aee9-3772121e69f8.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16051_850__2_39f965d6-bf3d-4538-ac38-7d5f6c2790fb.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16051_304__5_c488a445-a703-4fe2-86f0-b3b563b161fd.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400" ></span>
+        <span class="color-swatch" style="background-color:white;" data-main="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16048_621__1_f20b2b88-8e30-4f65-86a2-0a967387222a.jpg?v=1560250253&width=1000" 
+        data-thumbs="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16048_621__1_f20b2b88-8e30-4f65-86a2-0a967387222a.jpg?v=1560250253&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16048_231__3_e8fde569-6558-4cbb-bda9-b39d187b0609.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16048_625__4_66601006-0df7-4086-9016-3d69212b02a2.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16048_858__2_caea455b-4ce4-4589-8c89-5eb2fc53ae79.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16048_461__5_83ccfffa-0261-4ba6-b349-610d564da908.jpg?v=1560250249&width=400,https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16047_728__6_c998e0d0-8f40-4e91-9304-e4fb71265700.jpg?v=1560250249&width=400" ></span>
+      </div>
+      <div class="mb-2"><strong>Price:</strong> <span class="text-info fs-4">$59.95</span></div>
+
+      <div class="mb-3">
+        <strong>Stock:</strong>
+        <div class="text-success fw-semibold">● In stock (44 units), ready to be shipped</div>
+        <div class="progress mt-1" style="height: 4px; max-width: 300px;">
+          <div class="progress-bar bg-success" style="width: 70%"></div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <strong>Quantity:</strong>
+        <div class="input-group quantity-control" style="max-width: 140px;">
+          <button class="btn btn-outline-secondary" onclick="updateQty(-1)">-</button>
+          <input type="text" id="quantity" class="form-control text-center" value="1" readonly>
+          <button class="btn btn-outline-secondary" onclick="updateQty(1)">+</button>
+        </div>
+      </div>
+
+      <div class="d-flex gap-3">
+        <button id="add-to-cart-btn" class="btn btn-info text-white w-50">Add to cart</button>
+        <button class="btn btn-primary w-50">Buy it now</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="container-fluid top-rated-section px-0">
+  <h5 class="px-3 pt-3">Top-rated products</h5>
+  <div class="row g-0">
+
+    <!-- Column 1: Big Card -->
+    <div class="col-md-3 d-flex flex-column">
+      <div class="product-card product-tall flex-grow-1 position-relative">
+         <div class="save-badge">Save $50.00</div>
+         <img id="product-img-1" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13261_147__1_2e3211f9-de49-4919-9e67-006800a5c5a0.jpg?v=1559727794&width=600" alt="Sony XB950B1">
+        <div class="top-rated-content">
+        <small class="text-muted">SONY</small>
+        <h6 class="big-title">Sony XB-950B1 Extra Bass Wireless Headphones</h6>
+       <div>
+       <span class="color-swatch bg-primary" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13261_147__1_2e3211f9-de49-4919-9e67-006800a5c5a0.jpg?v=1559727794&width=600" data-target="product-img-1"></span>
+       <span class="color-swatch bg-danger" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13262_260__2_81a2ed73-eb4a-42a3-aa02-6eaa5f2bdef7.jpg?v=1559727840&width=800" data-target="product-img-1"></span>
+       <span class="color-swatch bg-dark" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/13397_766__1_013bca72-a2b8-4245-93a6-4a743cae7ebc.jpg?v=1559727881&width=800" data-target="product-img-1"></span>
+       </div>
+        <div><span class="text-danger fw-bold">From $128.00</span></div>
+        <div class="text-warning small">★☆☆☆☆ <span class="text-muted">1 review</span></div>
+        <div class="text-success small">● In stock, 99 units</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2: Two Small Cards -->
+    <div class="col-md-3 d-flex flex-column">
+      <div class="product-card product-small border-bottom">
+        <img id="product-img-2" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/A1Cet8zvhXL._SL1500.jpg?v=1559727616&width=600" alt="Yamaha WX-030">
+        <small class="text-muted">YAMAHA</small>
+        <h6 class="small-title">Yamaha WX-030 Wireless Speaker</h6>
+        <div>
+          <span class="color-swatch bg-dark" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/A1Cet8zvhXL._SL1500.jpg?v=1559727616&width=600" data-target="product-img-2"></span>
+          <span class="color-swatch bg-white border" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/7729a4038d41f5a9bc2654095511d5bf.jpg?v=1559727628&width=800" data-target="product-img-2"></span>
+        </div>
+        <div class="text-primary fw-bold">$249.95</div>
+         <div class="text-warning small">★★★★☆ <span class="text-muted">3 reviews</span></div>
+         <div class="text-success small">● In stock, 160 units</div>
+      </div>
+      <div class="product-card product-small">
+        <img id="product-img-3" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/E55BT_Quincy_Rose_Hero.jpg?v=1559754961&width=600" alt="JBL Go2">
+        <small class="text-muted">JBL</small>
+        <h6 class="small-title">JBL Go2 Portable Speaker</h6>
+        <div>
+          <span class="color-swatch" style="background-color: pink;" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/E55BT_Quincy_Rose_Hero.jpg?v=1559754961&width=600" data-target="product-img-3"></span>
+          <span class="color-swatch bg-dark"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/E55BT_Quincy_Grey_Hero.jpg?v=1559754983&width=800" data-target="product-img-3"></span>
+        </div>
+        <div class="text-primary fw-bold">$39.95</div>
+         <div class="text-warning small">★★★★☆ <span class="text-muted">3 reviews</span></div>
+         <div class="text-success small">● In stock, 160 units</div>
+      </div>
+    </div>
+
+    <!-- Column 3: Big Card -->
+    <div class="col-md-3 d-flex flex-column">
+      <div class="product-card product-tall flex-grow-1 position-relative">
+         <div class="new-badge">New</div>
+        <img id="product-img-4" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16568_174__1_ae3d9105-352b-40d7-960e-5d2b80795ad8.jpg?v=1560192339&width=800" alt="MW60"> 
+         <div class="top-rated-content">
+        <small class="text-muted">MASTER & DYNAMIC</small>
+        <h6 class="big-title">MW60 Wireless Over-Ear Headphones</h6>
+        <div>
+           <span class="color-swatch bg-danger"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16568_174__1_ae3d9105-352b-40d7-960e-5d2b80795ad8.jpg?v=1560192339&width=800" data-target="product-img-4"></span>
+           <span class="color-swatch bg-dark"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16566_693__1_5705f4d6-45d1-4c4d-9c28-56c5c71c08ab.jpg?v=1560192339&width=800" data-target="product-img-4"></span>
+           <span class="color-swatch" style="background-color: rgb(0, 0, 181);" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/81N_SDUxR2L._SL1500.jpg?v=1560192339&width=800" data-target="product-img-4"></span> 
+           <span class="color-swatch" style="background-color: goldenrod;" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/150940132aa1fa172d8581328c782b08.jpg?v=1560192339&width=800" data-target="product-img-4"></span>   
+           <span class="color-swatch" style="background-color: #D88371;;" data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/74f7ed3866b6a98f2f5ab60319469360.jpg?v=1560192339&width=800" data-target="product-img-4"></span> 
+        </div>
+        <div class="text-success fw-bold">From $549.00</div>
+        <div class="text-warning small">★★★★☆ <span class="text-muted">3 reviews</span></div>
+        <div class="text-success small">● In stock, 478 units</div>
+         </div>
+      </div>
+    </div>
+
+    <!-- Column 4: Two Small Cards -->
+    <div class="col-md-3 d-flex flex-column">
+      <div class="product-card product-small border-bottom">
+        <img id="product-img-5" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16070_752__1.jpg?v=1559819316&width=600" alt="JBL E55BT">
+        <small class="text-muted">JBL</small>
+        <h6 class="small-title">JBL E55BT Wireless Headphones</h6>
+        <div>
+          <span class="color-swatch bg-dark"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16070_752__1.jpg?v=1559819316&width=600" data-target="product-img-5"></span>
+          <span class="color-swatch" style="background-color: rgb(0, 0, 181);"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/16069_994__1.jpg?v=1559819342&width=800" data-target="product-img-5"></span>
+        </div>
+        <div class="text-primary fw-bold">$199.95</div>
+          <div class="text-warning small">★★★★★ <span class="text-muted">1 review</span></div>
+          <div class="text-success small">● In stock, 180 units</div>
+      </div>
+      <div class="product-card product-small">
+        <img id="product-img-6" src="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/2714e34d94372f824fe0a4ade01e3e8f.jpg?v=1559060512&width=600" alt="JBL Reflect Mini 2">
+        <small class="text-muted">JBL</small>
+        <h6 class="small-title">Reflect Mini 2 Wireless Earbuds</h6>
+        <div>
+          <span class="color-swatch bg-dark"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/2714e34d94372f824fe0a4ade01e3e8f.jpg?v=1559060512&width=600"  data-target="product-img-6"></span>
+          <span class="color-swatch" style="background-color: rgb(143, 69, 32);"data-img="https://warehouse-theme-metal.myshopify.com/cdn/shop/products/MW60S2_Stand_800x800_800x800_8f4dc533-dee5-4344-a4c1-5faac710b825.jpg?v=1631721906&width=800" data-target="product-img-6"></span>
+        </div>
+        <div id="price1" class="text-primary fw-bold" data-usd="99.95">$99.95</div>
+           <div class="text-warning small">★★★★★ <span class="text-muted">1 review</span></div>
+           <div class="text-success small">● In stock, 180 units</div>
+      </div>
+    </div>
+  </div>
+ </div>
+ 
+ <div class="container my-5 blog-section">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h5 class="mb-0">Blog posts</h5>
+  </div>
+
+   <div class="row g-4">
+    <div class="col-md-4">
+      <div class="blog-card">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/articles/old-new-living-space.jpg?v=1555337759&width=1000" alt="Surround sound speaker"class="img-fluid">
+        <a href="#" class="blog-title d-block mt-2">Setup your Surround sound speaker</a>
+        <div class="blog-meta">Michaël Gallego &bull; Apr 15, 2019</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="blog-card">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/articles/dj-board-volume-slider.jpg?v=1555337346&width=600" alt="Home theater receiver"  class="img-fluid">
+        <a href="#" class="blog-title d-block mt-2">Hook up a receiver for your home theater</a>
+        <div class="blog-meta">Michaël Gallego &bull; Apr 15, 2019</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="blog-card">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/articles/headphones-in-an-orange-glow.jpg?v=1555336792&width=600" alt="Comfortable headphones" class="img-fluid">
+        <a href="#" class="blog-title d-block mt-2">Top most comfortable headphones</a>
+        <div class="blog-meta">Michaël Gallego &bull; Apr 15, 2019</div>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div class="container my-5 our-stores-section">
+  <h5 class="mb-4">Our stores</h5>
+  <div class="row g-0 d-flex align-items-stretch">
+    <!-- Left Column: Store Info -->
+    <div class="col-md-6 d-flex">
+      <div class="store-box w-100">
+        <div class="accordion" id="storeAccordion">
+          <!-- First Item -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                      aria-expanded="true" aria-controls="collapseOne">
+                HiDEF Lifestyle Home Theater Store
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                 data-bs-parent="#storeAccordion">
+              <div class="accordion-body">
+                <p class="accordion-text">6195 Allentown Blvd, Harrisburg, PA 17112, USA</p>
+                <p class="text-muted mb-1">Monday - Friday: 9AM - 7PM</p>
+                <p class="text-muted mb-1">Saturday: 9AM - 5PM</p>
+                <p class="text-muted mb-3">Sunday: Closed</p>
+                <button class="btn btn-custom" style="border-radius: 0;" >Get directions</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Item -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                HiDEF Showroom
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                 data-bs-parent="#storeAccordion">
+              <div class="accordion-body">
+                <p class="accordion-text">Allentown Blvd, Pennsylvania, USA</p>
+                <p class="text-muted mb-1">Monday - Friday: 10AM - 9PM</p>
+                <p class="text-muted mb-1">Saturday: 11AM - 9PM</p>
+                <p class="text-muted mb-3">Sunday: Closed</p>
+                <button class="btn btn-custom" style="border-radius: 0;">Get directions</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Map/Image -->
+    <div class="col-md-6 d-flex">
+      <div class="img-wrapper w-100">
+        <img src="https://warehouse-theme-metal.myshopify.com/cdn/shop/files/Capture_d_ecran_2020-03-31_a_12.02.09.png?v=1613585313&width=1200" alt="Map" class="img-fluid">
+      </div>
+    </div>
+  </div>
+ </div>
+ 
+ <div class="subscribe-section py-5 text-center bg-light">
+  <div class="container">
+    <h5 class="fw-semibold mb-3">Let's keep in touch!</h5>
+    <p class="text-muted mb-4" style="max-width: 400px; margin: 0 auto;">
+      Subscribe to our weekly newsletter and receive exclusive offers
+      on products you love!
+    </p>
+
+    <form class="d-flex justify-content-center" style="max-width: 400px; margin: auto;">
+      <input type="email" class="form-control me-2" placeholder="Your email" required style="width: 65%; border-radius: 0;">
+      <button type="submit" class="btn btn-info text-white fw-semibold" style="width: 35%; border-radius: 0;">Subscribe</button>
+    </form>
+  </div>
+ </div>
+ 
+ <div class="most-searched-section container py-4">
+    <h5 class="mb-3">Most searched collections</h5>
+    <div class="row g-0 border">
+      <div class="col-2">
+        <div class="collection-box">
+          <a href="#" class="collection-title">Headphones</a>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="collection-box">
+          <a href="#" class="collection-title">Speakers</a>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="collection-box">
+          <a href="#" class="collection-title">TVs</a>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="collection-box">
+          <a href="#" class="collection-title">Turntables</a>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="collection-box">
+          <a href="#" class="collection-title">Subwoofers</a>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="collection-box">
+          <a href="#" class="collection-title">Projectors</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+   <!-- footer -->
+  <footer class="bg-light text-dark mt-5  border-2 pt-4">
+  <!-- Top Footer Section -->
+  <div class="container pb-4 top-footer">
+    <div class="row text-center text-md-start">
+      <div class="col-md-3 mb-3">
+        <img src="https://img.icons8.com/ios-filled/50/000000/delivery.png" width="30" alt="Delivery" />
+        <p class="fw-bold mb-1">Free delivery for $80+ orders</p>
+        <p class="text-muted small">We deliver in 48 hours max!</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <img src="https://img.icons8.com/ios-filled/50/000000/refund.png" width="30" alt="Refund" />
+        <p class="fw-bold mb-1">Satisfied or refunded</p>
+        <p class="text-muted small">Free returns within 14 days</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <img src="https://img.icons8.com/ios-filled/50/000000/online-support.png" width="30" alt="Support" />
+        <p class="fw-bold mb-1">We are available 24/7</p>
+        <p class="text-muted small">Contact us by chat, mail, phone</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <img src="https://img.icons8.com/ios-filled/50/000000/secured-letter.png" width="30" alt="Secure Payment" />
+        <p class="fw-bold mb-1">100% Secure payments</p>
+        <p class="text-muted small">Visa, Mastercard, Amex, PayPal</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="m-0" />
+
+  <!-- Bottom Footer Section -->
+  <div class="container pt-4 pb-3">
+    <div class="row text-start">
+      <!-- Column 1 -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">ABOUT THE STORE</h6>
+        <p class="small">
+          Our mission statement is to provide the absolute best customer experience available in the Audio/Video industry without exception.
+        </p>
+        <p class="small fst-italic">
+          A big thank you to <a href="#" class="text-decoration-underline">HiDEF Lifestyle</a> for allowing us to use their products in this demo store.
+        </p>
+        <div class="dropdown mt-3">
+           <button id="countryDropdownBtn" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+           Albania (USD $)
+          </button>
+           <ul class="dropdown-menu">
+           <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')">Georgia (GEL ლ)</a></li>
+           <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')">Germany (EUR €)</a></li>
+           <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')">USA (USD $)</a></li>
+           <li><a class="dropdown-item" href="#" onclick="updateCountry('France', 'EUR €')">France (EUR €)</a></li>
+          </ul>
+         </div>
+        <p class="text-muted mt-2 small">© 2025 Warehouse - Metal<br>Powered by Shopify</p>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">POPULAR COLLECTIONS</h6>
+        <ul class="list-unstyled small">
+          <li>Speakers</li>
+          <li>Audio Accessories</li>
+          <li>Headphones</li>
+          <li>Home Cinema</li>
+          <li>Sound Bars</li>
+          <li>LED TVs</li>
+        </ul>
+        <div class="d-flex mt-3 gap-2">
+          <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#"><i class="bi bi-pinterest fs-5"></i></a>
+          <a href="#"><i class="bi bi-youtube fs-5"></i></a>
+          <a href="#"><i class="bi bi-linkedin fs-5"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">INFORMATION</h6>
+        <ul class="list-unstyled small">
+          <li>About us</li>
+          <li>Brands we distribute</li>
+          <li>Meet the team</li>
+          <li>Contact information</li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">OUR NEWSLETTER</h6>
+        <p class="small">Subscribe to get notified about product launches, special offers and news.</p>
+        <form>
+          <div class="mb-2">
+            <input type="email" class="form-control form-control-sm" placeholder="Your email" />
+          </div>
+          <button class="btn btn-primary btn-sm w-100" type="submit">Subscribe</button>
+        </form>
+        <p class="mt-3 small fw-bold">We Accept</p>
+        <div class="d-flex gap-2">
+          <img src="https://img.icons8.com/color/48/visa.png" width="30" />
+          <img src="https://img.icons8.com/color/48/mastercard-logo.png" width="30" />
+          <img src="https://img.icons8.com/color/48/amex.png" width="30" />
+          <img src="https://img.icons8.com/color/48/paypal.png" width="30" />
+          <img src="https://img.icons8.com/color/48/discover.png" width="30" />
+        </div>
+      </div>
+    </div>
+  </div>
+ </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
